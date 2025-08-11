@@ -1,0 +1,77 @@
+
+.table-leads,
+.table-accounts,
+.table-contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container {
+    display: flex;
+    background-color: var(--WhiteColor);
+    padding: 1rem;
+    border-radius: 14px;
+    margin-top: 2rem;
+    overflow-y: auto;
+    max-width: 1400px;
+    max-height: 700px;
+    margin-bottom: 2rem;
+}   
+
+.entity-table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0.5rem;
+  overflow-y: auto;
+  height: auto;
+}
+
+.entity-table th,
+.entity-table td {
+    padding: 8px;
+    width: 150px; 
+    min-width: 50px;
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;   
+    vertical-align: middle;
+    height: 2.5rem;
+}
+
+.entity-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+    color: var(--IconColor);
+    border-radius: 14px;
+}
+.entity-table th:first-child {
+    background-color: var(--WhiteColor);
+}
+
+.entity-table th {
+  background-color: var(--IconLight);
+}
+
+.entity-table tr {
+  color: var(--IconGray);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+
+/* Dale estilo al input o select dentro */
+.entity-table td:focus-within input,
+.entity-table td:focus-within select {
+  background-color: #fff;
+  border-radius: 14px;
+  height: auto;
+  border: none;
+  padding: 0.25rem;
+  outline: none;
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--IconGray);
+  text-align: center;
+}

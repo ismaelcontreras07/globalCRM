@@ -1,0 +1,107 @@
+/* Contenedor del gráfico */
+.billing-chart {
+  width: 85%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* Título */
+.chart-title {
+  font-size: 1.5rem;
+  color: var(--textColor, #333);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Líneas de la grilla */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--IconGray);
+  stroke-dasharray: 3 3;
+}
+
+/* Ejes */
+.recharts-cartesian-axis-line {
+  stroke: var(--IconGray);
+  stroke-width: 1;
+}
+.recharts-cartesian-axis-tick-line {
+  stroke: var(--IconGray);
+  stroke-width: 1;
+}
+.recharts-cartesian-axis-tick text {
+  fill: var(--IconGray);
+  font-size: 0.75rem;
+}
+
+/* Barras: fondo y borde */
+.clients-bar {
+  fill: var(--IconColor) ;
+  stroke: var(--IconColor);
+  stroke-width: 2;
+}
+.providers-bar {
+  fill: var(--IconRed);
+  stroke: var(--IconRed);
+  stroke-width: 2;
+}
+.commissions-bar {
+  fill: var(--IconDark);
+  stroke: var(--IconDark);
+  stroke-width: 2;
+}
+
+/* Hover */
+.clients-bar:hover,
+.providers-bar:hover,
+.commissions-bar:hover {
+  opacity: 0.8;
+}
+
+/* Leyenda */
+.recharts-legend-wrapper {
+  margin-top: 1rem;
+}
+.recharts-legend-item text {
+  fill: var(--IconGray);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.recharts-legend-item:first-child {
+  fill: var(--IconColor);
+}
+.recharts-legend-item:nth-child(3) {
+  fill: var(--IconRed);
+}
+.recharts-legend-item:nth-child(2) {
+  fill: var(--IconDark);
+} 
+
+.recharts-legend-item .recharts-legend-icon {
+  width: 12px;
+  height: 12px;
+  stroke-width: 1;
+}
+
+/* Tooltip */
+.recharts-tooltip-wrapper {
+  background: var(--WhiteColor);
+  border: 1px solid var(--IconGray);
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+.recharts-tooltip-label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.recharts-tooltip-item-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Cursor pointer */
+.recharts-rectangle {
+  cursor: pointer;
+}

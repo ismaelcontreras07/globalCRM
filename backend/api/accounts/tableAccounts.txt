@@ -1,0 +1,23 @@
+CREATE TABLE `accounts` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(150) NOT NULL,                             -- Nombre de la cuenta/empresa
+  `industry` VARCHAR(100)         DEFAULT NULL,             -- Sector o industria
+  `website` VARCHAR(255)          DEFAULT NULL,             -- URL del sitio web
+  `phone` VARCHAR(50)             DEFAULT NULL,             -- Teléfono principal
+  `email` VARCHAR(150)            DEFAULT NULL,             -- Email genérico de la cuenta
+  `address` VARCHAR(255)          DEFAULT NULL,             -- Domicilio fiscal o principal
+  `city` VARCHAR(100)             DEFAULT NULL,
+  `state` VARCHAR(100)            DEFAULT NULL,
+  `country` VARCHAR(100)          DEFAULT NULL,
+  `postal_code` VARCHAR(20)       DEFAULT NULL,
+  `owner_id` INT UNSIGNED         DEFAULT NULL,             -- Relación a users.id (responsable/ejecutivo)
+  `credit` VARCHAR(50)           DEFAULT '0',             -- Crédito disponible
+  `role` ENUM('cliente', 'provider') NOT NULL DEFAULT "cliente",
+  `status` ENUM('activo','inactivo') NOT NULL DEFAULT 'activo',
+  `created_at` TIMESTAMP          NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP          NOT NULL 
+      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `idx_accounts_owner` (`owner_id`),
+  UNIQUE KEY `uq_accounts_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

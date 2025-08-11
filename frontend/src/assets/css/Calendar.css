@@ -1,0 +1,132 @@
+/* FullCalendarCustom.css */
+
+/* Variables base (ajusta colores globales) */
+:root {
+    --fc-border-color: #e2e8f0;
+    --fc-bg-day: #ffffff;
+    --fc-bg-today: #ebf8ff;
+    --fc-button-bg: #43438e;
+    --fc-button-color: #ffffff;
+    --fc-button-hover-bg: #20ba5a;
+    --fc-event-bg: #43438e;
+    --fc-event-hover-bg: #20ba5a;
+    --fc-event-color: #ffffff;
+  }
+  
+
+  /* 1. Contenedor global */
+  .fc {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--IconDark);
+  }
+  
+  /* 2. Barra de herramientas (toolbar) */
+  .fc-toolbar {
+    margin-bottom: 1rem;
+  }
+  .fc .fc-toolbar .fc-button {
+    background-color: var(--IconColor) !important;
+    color: var(--IconLight) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: background-color 0.2s ease;
+    margin: 0.1rem !important;
+  }
+  .fc .fc-toolbar .fc-button:hover,
+  .fc .fc-toolbar .fc-button:focus {
+    background-color: var(--fc-button-hover-bg) !important;
+  }
+  .fc .fc-toolbar .fc-button:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+  }
+  .fc .fc-toolbar .fc-button-active {
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5) !important;
+  }
+  
+  /* 3. Cabecera de columnas (día de la semana) */
+  .fc .fc-col-header-cell-cushion {
+    font-weight: 600;
+    padding: 0.5rem 0 !important;
+    color: var(--IconDark);
+  }
+  
+  /* 4. Celdas de día */
+  .fc .fc-daygrid-day {
+    border: 1px solid var(--fc-border-color);
+    background-color: var(--fc-bg-day);
+  }
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: var(--fc-bg-today);
+  }
+  
+  /* 5. Eventos en vista dayGrid (mes) */
+  .fc .fc-daygrid-event {
+    background-color: var(--fc-event-bg) !important;
+    color: var(--fc-event-color) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 2px 4px !important;
+    font-size: 0.85rem !important;
+    transition: background-color 0.2s ease;
+  }
+  .fc .fc-daygrid-event:hover {
+    background-color: var(--fc-event-hover-bg) !important;
+  }
+  
+  /* 6. Eventos en vista timeGrid (semana/día) */
+  .fc .fc-timegrid-event {
+    background-color: var(--fc-event-bg) !important;
+    color: var(--fc-event-color) !important;
+    border: none !important;
+    border-radius: 4px !important;
+  }
+  .fc .fc-timegrid-event:hover {
+    background-color: var(--fc-event-hover-bg) !important;
+  }
+  
+  /* 7. Vista de lista (agenda) */
+  .fc .fc-list-table > tbody > tr {
+    border-bottom: 1px solid var(--fc-border-color);
+  }
+  .fc .fc-list-event {
+    padding: 0.5rem 0 !important;
+  }
+  .fc .fc-list-event:hover {
+    background-color: var(--WhiteColor) !important;
+  }
+  
+  /* 8. Placeholder al arrastrar eventos (si usas draggable) */
+  .fc .fc-scrollgrid-sync-inner {
+    /* nada especial por defecto */
+  }
+  .fc .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event.fc-event-dragging {
+    opacity: 0.8;
+  }
+  
+  /* 9. Responsive: toolbar apilada en móviles */
+  @media (max-width: 600px) {
+    .fc .fc-toolbar-chunk {
+      display: block;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .fc .fc-toolbar .fc-button {
+      margin-bottom: 0.5rem !important;
+      width: 100% !important;
+    }
+  }
+  
+
+  /* el contenedor principal que FullCalendar siempre añade */
+.fc {
+    position: relative;
+    z-index: -1000;
+  }
+  
+  /* o bien el pop-over de eventos */
+  .fc-popover {
+    z-index: 2;
+  }
+  

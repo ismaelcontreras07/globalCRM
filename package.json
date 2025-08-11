@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "kanban": "^0.0.3",
+    "react-select": "^5.10.2",
+    "xlsx": "^0.18.5"
+  }
+}

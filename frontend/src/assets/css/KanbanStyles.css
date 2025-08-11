@@ -1,0 +1,107 @@
+
+* {
+    --KanbanRed: #ffcece;
+    --KanbanYellow: #fff5ce;
+    --KanbanGreen: #cefff5;
+    --KanbanBlue: #cee4ff;
+    --KanbanPurple: #e4ceff;
+}
+
+
+.kanban-column {
+    background: var(--WhiteColor);
+    border-radius: 14px;
+    padding: 16px;
+    width: 280px;
+    height: 580px;
+    overflow-y: auto;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s ease;
+  }
+
+  .kanban-column:first-child {
+    background-color: var(--KanbanRed);
+  }
+  .kanban-column:nth-child(2) {
+    background-color: var(--KanbanPurple);
+  }
+  .kanban-column:nth-child(3) {
+    background-color: var(--KanbanBlue);
+  }
+  .kanban-column:nth-child(4) {
+    background-color: var(--KanbanGreen);
+  }
+
+  .kanban-column.drag-over {
+    background: var(--IconGray); /* feedback al arrastrar sobre ella */
+  }
+  
+  /* título de columna */
+  .kanban-column .column-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-weight: 800;
+    color: var(--IconDark);
+    background-color: var(--WhiteColor);
+    padding: 0.5rem;
+    border-radius: 14px;
+  }
+  
+  /* tarjeta individual */
+  .kanban-card {
+    background: var(--WhiteColor);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .kanban-card.dragging {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: rotate(1deg);
+  }
+  
+  /* placeholder que deja espacio al mover */
+  .kanban-placeholder {
+    background: var(--IconLight);
+    border-radius: 14px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  .kanban-card-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: var(--IconColor);
+  } 
+
+  .kanban-card-encargado {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+    color: var(--IconGray);
+  } 
+
+  .kanban-card-date {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+    color: var(--IconDark);
+  } 
+
+  .kanban-card-status {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+    color: var(--IconDark);
+  }  
+
+  .kanban-card-activity {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-weight: 800;
+    color: var(--IconDark);
+  }  

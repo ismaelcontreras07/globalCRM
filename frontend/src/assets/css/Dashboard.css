@@ -1,0 +1,19 @@
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--IconColor);
+}
+
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+  background-color: var(--WhiteColor);
+}

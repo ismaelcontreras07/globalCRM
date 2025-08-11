@@ -1,0 +1,21 @@
+.btn-delete-complement {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background-color: transparent;
+    color: var(--WhiteColor);
+    cursor: pointer;
+    background-color: var(--IconRed);
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-delete-complement:hover {
+    background-color: var(--IconDark);
+}

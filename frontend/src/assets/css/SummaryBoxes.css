@@ -1,0 +1,83 @@
+/* SummaryBoxes.css */
+.summary-boxes-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+
+.summary-boxes {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    background-color: var(--WhiteColor);
+    padding: 2rem;
+    border-radius: 14px;
+  }
+
+  .summary-box.deuda,.summary-box.cobranza,.summary-box.comisiones {
+    color: var(--WhiteColor);
+    border-radius: 14px;
+    padding: 2rem;
+    width: 280px;
+    height: auto;
+    overflow-y: auto;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .summary-box-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    font-weight: 800;
+    color: var(--IconColor);
+    background-color: var(--WhiteColor);
+    padding: 0.5rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  .summary-box.deuda {
+    background-color: var(--KanbanRed);
+  }
+
+  .summary-box.cobranza {
+    background-color: var(--IconLight);
+  }
+
+  .summary-box.comisiones {
+    background-color: var(--IconGray);
+  }
+
+  .summary-box-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 800;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--IconDark);
+    background-color: var(--WhiteColor);
+    padding: 0.8rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  .summary-box-row p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.2rem;
+    font-weight: 500;
+    
+  }
+
+  .summary-box-row-label {
+    font-weight: 800;
+    width: 100%;
+    color: var(--IconColor);
+  }
