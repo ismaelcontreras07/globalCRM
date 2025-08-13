@@ -3,7 +3,6 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../assets/css/LoginForm.css';
-import iconLogo from '../assets/icon2.svg';
 
 export default function LoginForm() {
   const [email, setEmail]       = useState('');
@@ -37,7 +36,6 @@ export default function LoginForm() {
   return (
     <div className="login-container">
     <form className="login-form" onSubmit={handleSubmit}>
-      <img src={iconLogo} alt="Icon Logo" className="logo-login" />
       <h2 className="form-title">Iniciar sesión</h2>
       <p className="form-subtitle">Ingresa tus datos para iniciar sesión</p>
 
@@ -52,7 +50,7 @@ export default function LoginForm() {
           onChange={e => setEmail(e.target.value)}
           disabled={loading}
           required
-          placeholder="@iconfacility.com.mx"
+          placeholder="@correo.com"
         />
       </div>
 

@@ -9,7 +9,7 @@
 
 
 .kanban-column {
-    background: var(--WhiteColor);
+    background: var(--whiteColor);
     border-radius: 14px;
     padding: 16px;
     width: 280px;
@@ -40,18 +40,18 @@
   
   /* título de columna */
   .kanban-column .column-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 12px;
     font-weight: 800;
     color: var(--IconDark);
-    background-color: var(--WhiteColor);
+    background-color: var(--whiteColor);
     padding: 0.5rem;
     border-radius: 14px;
   }
   
   /* tarjeta individual */
   .kanban-card {
-    background: var(--WhiteColor);
+    background: var(--whiteColor);
     border-radius: 14px;
     padding: 12px;
     margin-bottom: 12px;
@@ -65,7 +65,7 @@
   
   /* placeholder que deja espacio al mover */
   .kanban-placeholder {
-    background: var(--IconLight);
+    background: var(--whiteColor);
     border-radius: 14px;
     height: 48px;
     margin-bottom: 12px;
@@ -75,33 +75,33 @@
     font-size: 1.2rem;
     margin-bottom: 20px;
     font-weight: 800;
-    color: var(--IconColor);
+    color: var(--principalColor);
   } 
 
   .kanban-card-encargado {
     font-size: 1rem;
     margin-bottom: 8px;
     font-weight: 800;
-    color: var(--IconGray);
+    color: var(--grayColor);
   } 
 
   .kanban-card-date {
     font-size: 0.8rem;
     margin-bottom: 8px;
     font-weight: 800;
-    color: var(--IconDark);
+    color: var(--darkColor);
   } 
 
   .kanban-card-status {
     font-size: 0.8rem;
     margin-bottom: 8px;
     font-weight: 800;
-    color: var(--IconDark);
+    color: var(--darkColor);
   }  
 
   .kanban-card-activity {
     font-size: 0.8rem;
     margin-bottom: 8px;
     font-weight: 800;
-    color: var(--IconDark);
+    color: var(--darkColor);
   }  

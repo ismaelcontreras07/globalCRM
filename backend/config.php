@@ -2,12 +2,12 @@
 session_start();
 
 // Parámetros de conexión
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'iconcrm');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'localhost'); // el host de donde encuentra la base de datos
+define('DB_NAME', 'aymacrm'); // el nombre de la base de datos
+define('DB_USER', 'root'); // el usuario de la base de datos
+define('DB_PASS', ''); // la contraseña de la base de datos
 
-// Conexión PDO
+// intenta hacer la conexión a la base de datos
 try {
     $pdo = new PDO(
         "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4",
@@ -19,6 +19,5 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    // En producción: registra el error en un log en lugar de mostrarlo
-    die("Error de conexión a la base de datos: " . $e->getMessage());
+    die("Error de conexión a la base de datos: " . $e->getMessage()); // mensaje de error
 }

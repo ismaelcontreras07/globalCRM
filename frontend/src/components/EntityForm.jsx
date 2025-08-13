@@ -58,6 +58,7 @@ const createEndpoint = {
   accounts: 'accounts/createAccounts.php',
   contacts: 'contacts/createContacts.php'
 };
+
 const updateEndpoint = {
   leads:    'leads/updateLeads.php',
   accounts: 'accounts/updateAccounts.php',
@@ -190,7 +191,6 @@ useEffect(() => {
       );
     }
 
-    // Para el resto de campos, mantenemos la lógica anterior
     return (
       <div key={field.name} className="form-group">
         <label htmlFor={field.name} className="form-label">{field.label}</label>

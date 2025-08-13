@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../assets/css/Sidebar.css';
-import iconLogo from '../assets/icon2.svg';
 import LogoutButton from './LogoutButton';
 
 export default function Sidebar() {
@@ -19,7 +18,6 @@ export default function Sidebar() {
           </div>
           <div className="top_menu">
             <div className="logo">
-              <img src={iconLogo} alt="Icon" className="icon-logo" />
             </div>
             <ul>
               {/* <li>
@@ -82,18 +80,6 @@ export default function Sidebar() {
               >
                 <span className="icon"><i className="fas fa-calendar" /></span>
                 <span className="title">Actividades</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/facturacion" className="sidebar-link">
-                <span className="icon"><i className="fas fa-file-invoice-dollar" /></span>
-                <span className="title">Facturación</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/catalog" className="sidebar-link">
-                <span className="icon"><i className="fas fa-list" /></span>
-                <span className="title">Catalogo</span>
               </NavLink>
             </li>
           </ul>

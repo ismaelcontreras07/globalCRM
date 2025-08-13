@@ -43,6 +43,8 @@ function formatDDMMYYYY(rawDatetime) {
       .finally(() => setLoading(false));
   }, []);
 
+  
+
   // Cuando entras en modo edición, enfoca el input/select
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();

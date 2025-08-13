@@ -24,7 +24,7 @@
 .wrapper .top_navbar .hamburger{
   width: 70px;
   height: 100%;
-  background: var(--IconColor);
+  background: var(--principalColor);
   padding: 15px 17px;
   cursor: pointer;
 }
@@ -32,7 +32,7 @@
 .wrapper .top_navbar .hamburger div{
   width: 35px;
   height: 4px;
-  background: var(--IconDark);
+  background: var(--darkColor);
   margin: 5px 0;
   border-radius: 10px;
 }
@@ -40,7 +40,7 @@
 .wrapper .top_navbar .top_menu{
   width: calc(100% - 70px);
   height: 100%;
-  background: var(--IconLight);
+  background: var(--whiteColor);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .wrapper .top_navbar .top_menu .logo{
-  color: var(--IconColor);
+  color: var(--whiteColor);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -65,13 +65,13 @@
   height: 35px;
   line-height: 35px;
   text-align: center;
-  border: 2px solid var(--IconColor);
+  border: 2px solid var(--principalColor);
   border-radius: 30%;
-  color: var(--IconColor);
+  color: var(--principalColor);
 }
 
 .wrapper .top_navbar .top_menu ul li a:hover{
-  background: var(--IconColor);
+  background: var(--principalColor);
   color: #fff;
 }
 
@@ -82,7 +82,7 @@
 .wrapper .sidebar{
   position: fixed;
   top: 60px;
-  background: var(--IconColor);
+  background: var(--principalColor);
   width: 200px;
   height: 100%;
   transition: all 0.2s ease;
@@ -92,10 +92,10 @@
 .wrapper .sidebar ul li a{
     display: block;
     padding: 20px;
-    color: #fff;
+    color: var(--whiteColor);
     position: relative;
     margin-bottom: 1px;
-    color: var(--IconDark);
+      color: var(--darkColor);
     white-space: nowrap;
 }
 
@@ -106,7 +106,7 @@
   left: 0;
   width: 3px;
   height: 100%;
-  background: var(--IconLight);
+  background: var(--whiteColor);
   display: none;
 }
 
@@ -121,8 +121,8 @@
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
-  background: var(--IconDark);
-  color: var(--IconLight);
+  background: var(--darkColor);
+  color: var(--whiteColor);
 }
 
 .wrapper .sidebar ul li a:hover:before,

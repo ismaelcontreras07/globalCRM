@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { AuthContext }             from '../context/AuthContext';
-import CommissionsCard             from '../components/CommissionsCard';
 import '../assets/css/Dashboard.css'; 
 
 export default function Dashboard() {
@@ -17,7 +16,6 @@ export default function Dashboard() {
       </div>
 
       <section className="dashboard-content">
-        <CommissionsCard />
         {/* aquí luego podrías añadir más cards */}
       </section>
     </main>
