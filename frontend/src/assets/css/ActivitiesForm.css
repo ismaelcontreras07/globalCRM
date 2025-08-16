@@ -5,7 +5,7 @@
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    background-color: var(--WhiteColor);
+    background-color: var(--whiteColor);
     padding: 2rem;
     width: 50%;
     min-width: 400px;

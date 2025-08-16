@@ -32,7 +32,7 @@ const StyledWrapper = styled.div`
 
   /* Create a custom checkbox */
   .checkmark {
-    --clr: var(--IconDark);
+    --clr: var(--darkColor);
     position: relative;
     top: 0;
     left: 0;

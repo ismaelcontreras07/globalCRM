@@ -8,9 +8,10 @@
     --fc-button-bg: #43438e;
     --fc-button-color: #ffffff;
     --fc-button-hover-bg: #20ba5a;
-    --fc-event-bg: #43438e;
-    --fc-event-hover-bg: #20ba5a;
+    --fc-event-bg: #31465f;
+    --fc-event-hover-bg: #5da6ff;
     --fc-event-color: #ffffff;
+    --fc-faded-color: #31465f9d;
   }
   
 
@@ -25,8 +26,8 @@
     margin-bottom: 1rem;
   }
   .fc .fc-toolbar .fc-button {
-    background-color: var(--IconColor) !important;
-    color: var(--IconLight) !important;
+    background-color: var(--fc-event-bg) !important;
+    color: var(--whiteColor) !important;
     border: none !important;
     border-radius: 14px !important;
     padding: 0.5rem 0.75rem !important;
@@ -35,7 +36,7 @@
   }
   .fc .fc-toolbar .fc-button:hover,
   .fc .fc-toolbar .fc-button:focus {
-    background-color: var(--fc-button-hover-bg) !important;
+    background-color: var(--fc-event-hover-bg) !important;
   }
   .fc .fc-toolbar .fc-button:disabled {
     opacity: 0.6 !important;
@@ -69,6 +70,7 @@
     border-radius: 14px !important;
     padding: 2px 4px !important;
     font-size: 0.85rem !important;
+    font-weight: 120px !important;
     transition: background-color 0.2s ease;
   }
   .fc .fc-daygrid-event:hover {
@@ -129,4 +131,11 @@
   .fc-popover {
     z-index: 2;
   }
-  
+
+/* estilo titulo mes */
+  .fc-toolbar-title {
+    color: var(--fc-event-hover-bg);
+    background-color: var(--whiteColor);
+    border-radius: 14px;
+    padding: 1rem 2rem !important;
+  }
