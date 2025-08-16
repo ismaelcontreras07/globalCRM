@@ -89,7 +89,7 @@ export default function TableContacts() {
   if (error)   return <p className="error">{error}</p>;
 
   const fields = [
-    'account_id','first_name','last_name','title','department',
+    'account_id','first_name','title','department',
     'email','phone','mobile','lead_source','created_at'
   ];
 
@@ -100,8 +100,7 @@ export default function TableContacts() {
           <tr>
             <th />
             <th>Cuenta</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Nombre Completo</th>
             <th>Cargo</th>
             <th>Departamento</th>
             <th>Email</th>

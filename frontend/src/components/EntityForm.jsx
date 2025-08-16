@@ -6,8 +6,7 @@ import '../assets/css/EntityForm.css';
 // Configuración de campos por entidad
 const fieldConfigs = {
   leads: [
-    { name: 'first_name', label: 'Nombre', type: 'text', required: true },
-    { name: 'last_name',  label: 'Apellido', type: 'text', required: true },
+    { name: 'first_name', label: 'Nombre Completo', type: 'text', required: true },
     { name: 'company',    label: 'Empresa',  type: 'text' },
     { name: 'position',   label: 'Puesto',   type: 'text' },
     { name: 'country',    label: 'País',     type: 'text' },
@@ -42,7 +41,6 @@ const fieldConfigs = {
   contacts: [
     { name: 'account_id',  label: 'ID de Cuenta',        type: 'number', required: true },
     { name: 'first_name',  label: 'Nombre',              type: 'text',   required: true },
-    { name: 'last_name',   label: 'Apellido',            type: 'text',   required: true },
     { name: 'title',       label: 'Cargo',               type: 'text' },
     { name: 'department',  label: 'Departamento',        type: 'text' },
     { name: 'email',       label: 'Email',               type: 'email' },

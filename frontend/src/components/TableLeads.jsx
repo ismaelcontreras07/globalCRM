@@ -96,7 +96,7 @@ function formatDDMMYYYY(rawDatetime) {
   if (error)   return <p className="error">{error}</p>;
 
   const fields = [
-    'first_name','last_name','company','position',
+    'first_name','company','position',
     'country','email','phone','status','created_at'
   ];
 
@@ -106,8 +106,7 @@ function formatDDMMYYYY(rawDatetime) {
         <thead>
           <tr>
             <th />
-            <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Nombre Completo</th>
             <th>Empresa</th>
             <th>Puesto</th>
             <th>País</th>
