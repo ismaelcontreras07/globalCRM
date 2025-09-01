@@ -19,6 +19,8 @@ const fieldConfigs = {
       ]
     },
     { name: 'source',     label: 'Fuente', type: 'text' },
+    { name: 'owner',     label: 'Propietario', type: 'text' },
+    { name: 'notes',     label: 'Notas', type: 'text' },
   ],
   accounts: [
     { name: 'name',        label: 'Nombre de la cuenta', type: 'text', required: true },

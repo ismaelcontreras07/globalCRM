@@ -118,7 +118,7 @@ const handleCheckbox = (e, lead) => {
 
   const fields = [
     'first_name','company','position',
-    'email','phone','status','created_at', 'source'
+    'email','phone','status','created_at', 'source', 'owner', 'notes'
   ];
 
   return (
@@ -135,6 +135,8 @@ const handleCheckbox = (e, lead) => {
             <th>Estado</th>
             <th>Creado</th>
             <th>Fuente</th>
+            <th>Propietario</th>
+            <th>Notas</th>
           </tr>
         </thead>
         <tbody>
