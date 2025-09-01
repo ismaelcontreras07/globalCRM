@@ -24,12 +24,13 @@ $position = trim($_POST['position'] ?? null);
 $phone    = trim($_POST['phone']    ?? null);
 $status   = in_array($_POST['status'] ?? '', ['interesado','aplazados','en_curso','completado'])
             ? $_POST['status'] : 'interesado';
+$source   = trim($_POST['source']   ?? null);
 
 try {
   $stmt = $pdo->prepare("
     INSERT INTO leads
-      (first_name,email,company,position,phone,status)
-    VALUES (?, ?, ?, ?, ?, ?)
+      (first_name,email,company,position,phone,status,source)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   ");
   $stmt->execute([
     $first_name,
@@ -37,7 +38,8 @@ try {
     $company,
     $position,
     $phone,
-    $status
+    $status,
+    $source
   ]);
   echo json_encode([
     'success' => true,

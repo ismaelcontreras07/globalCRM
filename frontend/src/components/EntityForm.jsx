@@ -17,7 +17,8 @@ const fieldConfigs = {
         { value: 'en_curso',    label: 'En curso'    },
         { value: 'completado',  label: 'Completado'  }
       ]
-    }
+    },
+    { name: 'source',     label: 'Fuente', type: 'text' },
   ],
   accounts: [
     { name: 'name',        label: 'Nombre de la cuenta', type: 'text', required: true },
