@@ -32,7 +32,7 @@ const StyledWrapper = styled.div`
 
   /* Create a custom checkbox */
   .checkmark {
-    --clr: var(--IconDark);
+    --clr: var(--darkColor);
     position: relative;
     top: 0;
     left: 0;
@@ -75,7 +75,7 @@ const StyledWrapper = styled.div`
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 var(--IconColor);
+      box-shadow: 0 0 0 var(--principalColor);
       rotate: 20deg;
     }
 
@@ -84,10 +84,10 @@ const StyledWrapper = styled.div`
     }
 
     75% {
-      box-shadow: 0 0 0 5px var(--IconLight);
+      box-shadow: 0 0 0 5px var(--principalColor);
     }
 
     100% {
-      box-shadow: 0 0 0 5px var(--IconLight);
+      box-shadow: 0 0 0 5px var(--darkColor);
       rotate: 0;
   }`;

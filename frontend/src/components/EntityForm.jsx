@@ -9,7 +9,6 @@ const fieldConfigs = {
     { name: 'first_name', label: 'Nombre Completo', type: 'text', required: true },
     { name: 'company',    label: 'Empresa',  type: 'text' },
     { name: 'position',   label: 'Puesto',   type: 'text' },
-    { name: 'country',    label: 'País',     type: 'text' },
     { name: 'email',      label: 'Email',    type: 'email', required: true },
     { name: 'phone',      label: 'Teléfono', type: 'text' },
     { name: 'status',     label: 'Estado',   type: 'select', options: [

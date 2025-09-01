@@ -40,10 +40,10 @@ foreach ($_POST as $key => $val) {
       $updates[] = "`$key` = ?";
       $params[]  = $dt->format('Y-m-d H:i:s');
     } elseif ($key === 'status') {
-      // 5) validamos estado
-      $valid = ['no_iniciado','aplazados','en_curso','completado'];
+      // Validación de estado alineada con la columna ENUM
+      $valid = ['interesado','aplazados','en_curso','completado'];
       $status = trim($val);
-      if (! in_array($status, $valid, true)) {
+      if (!in_array($status, $valid, true)) {
         http_response_code(400);
         echo json_encode(['success'=>false,'message'=>'Estado inválido']);
         exit;

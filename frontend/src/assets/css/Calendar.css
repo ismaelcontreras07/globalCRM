@@ -25,7 +25,7 @@
     margin-bottom: 1rem;
   }
   .fc .fc-toolbar .fc-button {
-    background-color: var(--IconColor) !important;
+    background-color: gray !important;
     color: var(--IconLight) !important;
     border: none !important;
     border-radius: 14px !important;
@@ -35,7 +35,7 @@
   }
   .fc .fc-toolbar .fc-button:hover,
   .fc .fc-toolbar .fc-button:focus {
-    background-color: var(--fc-button-hover-bg) !important;
+    background-color: red !important;
   }
   .fc .fc-toolbar .fc-button:disabled {
     opacity: 0.6 !important;

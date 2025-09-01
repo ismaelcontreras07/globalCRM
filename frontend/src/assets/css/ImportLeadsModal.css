@@ -1,0 +1,70 @@
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--principalColor);
+}
+
+.import-identificadas {
+    font-size: 1.1rem;
+    color: var(--darkColor); 
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.import-asignacion {
+    font-size: 1.1rem;
+    color: var(--darkColor); 
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.form-list {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--principalColor);
+}
+
+.form-help {
+    font-size: 0.8rem;
+    color: var(--grayColor);
+    margin-bottom: 1.5rem;
+}
+
+.import-form-group {
+    margin-bottom: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 14px;
+}
+
+.import-form-label {
+    color: var(--principalColor);
+    font-size: 0.9rem;
+    font-weight: 100;
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.form-control {
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 14px;
+    border: none;
+    color: var(--grayColor);
+    font-size: 0.9rem;
+    font-weight: 100;
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    outline: none;
+    background-color: var(--whiteColor);
+}
+
+.import-preview-title {
+    font-size: 1.1rem;
+    color: var(--darkColor); 
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}

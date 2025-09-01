@@ -2,7 +2,7 @@
 // hash.php
 // ---
 // Coloca aquí tu contraseña en texto plano:
-$password = 'icon2025';
+$password = 'aysima2025.';
 
 // Genera el hash seguro con bcrypt (PASSWORD_DEFAULT)
 $hash = password_hash($password, PASSWORD_DEFAULT);

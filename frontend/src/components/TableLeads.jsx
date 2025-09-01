@@ -4,54 +4,68 @@ import '../assets/css/EntityTable.css';
 import Checkbox from './Checkbox';
 
 const STATUS_OPTIONS = [
-  { value: 'no_iniciado', label: 'No iniciado' },
-  { value: 'aplazados',   label: 'Aplazados'   },
-  { value: 'en_curso',    label: 'En curso'    },
-  { value: 'completado',  label: 'Completado'  }
+  { value: 'interesado', label: 'Interesado' },
+  { value: 'aplazados',  label: 'Aplazados'  },
+  { value: 'en_curso',   label: 'En curso'   },
+  { value: 'completado', label: 'Completado' }
 ];
 
-export default function TableLeads() {
-  const [leads, setLeads]     = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [updating, setUpdating] = useState(false); 
-  const [error, setError]     = useState('');
+export default function TableLeads({ refreshKey = 0, onCheckboxClick }) {
+  const [leads, setLeads]       = useState([]);
+  const [loading, setLoading]   = useState(true);
+  const [updating, setUpdating] = useState(false);
+  const [error, setError]       = useState('');
 
-  // Estado de edición: { id, field } o null
+  // Edición inline
   const [editingCell, setEditingCell] = useState(null);
   const [inputValue, setInputValue]   = useState('');
   const inputRef = useRef(null);
 
+  function formatDDMMYYYY(raw) {
+    if (!raw) return '';
+    const d = new Date(raw);
+    if (!isNaN(d)) {
+      const dd = String(d.getDate()).padStart(2,'0');
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const yy = d.getFullYear();
+      return `${dd}/${mm}/${yy}`;
+    }
+    const [ymd] = String(raw).split(' ');
+    const [y, m, d2] = (ymd || '').split('-');
+    return (d2 && m && y) ? `${d2}/${m}/${y}` : String(raw);
+  }
 
-function formatDDMMYYYY(rawDatetime) {
-  const [ymd] = rawDatetime.split(' ');
-  const [y, m, d] = ymd.split('-');
-  return `${d}/${m}/${y}`;
-}
-
-
-  useEffect(() => {
+  const reloadLeads = () => {
+    setLoading(true);
+    setError('');
     fetch('/api/leads/listLeads.php', { credentials: 'include' })
-      .then(res => {
-        if (!res.ok) throw new Error('Error al cargar leads');
-        return res.json();
+      .then(r => {
+        if (!r.ok) throw new Error('Error al cargar leads');
+        return r.json();
       })
-      .then(data => setLeads(data.leads || []))
-      .catch(err => {
-        console.error(err);
-        setError('No se pudieron cargar los leads');
-      })
+      .then(d => setLeads(d.leads || []))
+      .catch(() => setError('No se pudieron cargar los leads'))
       .finally(() => setLoading(false));
+  };
+
+  // Carga inicial
+  useEffect(() => {
+    reloadLeads();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
+  // Recarga cuando cambie refreshKey (después de importar)
+  useEffect(() => {
+    if (refreshKey > 0) reloadLeads();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshKey]);
 
-  // Cuando entras en modo edición, enfoca el input/select
+  // Enfocar input/select al entrar en modo edición
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();
   }, [editingCell]);
 
   const startEditing = (leadId, field) => {
-    // para fecha: formatea a YYYY-MM-DD
     const raw = leadId && leads.find(l => l.id === leadId)?.[field];
     const current = field === 'created_at'
       ? new Date(raw).toISOString().slice(0, 10)
@@ -92,12 +106,19 @@ function formatDDMMYYYY(rawDatetime) {
     if (e.key === 'Escape') setEditingCell(null);
   };
 
+// Click en checkbox
+const handleCheckbox = (e, lead) => {
+  // Mandamos al padre el lead y el estado final del checkbox
+  onCheckboxClick?.(lead, e.target.checked);
+};
+
+
   if (loading) return <p>Cargando leads…</p>;
   if (error)   return <p className="error">{error}</p>;
 
   const fields = [
     'first_name','company','position',
-    'country','email','phone','status','created_at'
+    'email','phone','status','created_at'
   ];
 
   return (
@@ -109,7 +130,6 @@ function formatDDMMYYYY(rawDatetime) {
             <th>Nombre Completo</th>
             <th>Empresa</th>
             <th>Puesto</th>
-            <th>País</th>
             <th>Email</th>
             <th>Teléfono</th>
             <th>Estado</th>
@@ -120,8 +140,10 @@ function formatDDMMYYYY(rawDatetime) {
           {leads.map(lead => (
             <tr key={lead.id}>
               <td>
-                <Checkbox />
+                {/* El componente Checkbox que ya usas */}
+                <Checkbox onChange={(e) => handleCheckbox(e, lead)} />
               </td>
+
               {fields.map(field => (
                 <td
                   key={field}
@@ -132,34 +154,39 @@ function formatDDMMYYYY(rawDatetime) {
                    editingCell.field === field ? (
                     field === 'status' ? (
                       <select
-                        ref={inputRef}
-                        value={inputValue}
-                        onChange={e => setInputValue(e.target.value)}
-                        onBlur={saveEdit}
-                        onKeyDown={handleKeyDown}
-                      >
-                        {STATUS_OPTIONS.map(opt => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
+                          ref={inputRef}
+                          value={inputValue}
+                          onChange={e => setInputValue(e.target.value)}
+                          onBlur={saveEdit}
+                          onKeyDown={handleKeyDown}
+                          onClick={(e) => e.stopPropagation()}
+                          onMouseDown={(e) => e.stopPropagation()}
+                          disabled={updating}
+                        >
+                          {STATUS_OPTIONS.map(opt => (
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                          ))}
+                        </select>
                     ) : (
                       <input
-                        ref={inputRef}
-                        type={field === 'created_at' ? 'date' : 'text'}
-                        value={inputValue}
-                        onChange={e => setInputValue(e.target.value)}
-                        onBlur={saveEdit}
-                        onKeyDown={handleKeyDown}
-                      />
+  ref={inputRef}
+  type={field === 'created_at' ? 'date' : 'text'}
+  value={inputValue}
+  onChange={e => setInputValue(e.target.value)}
+  onBlur={saveEdit}
+  onKeyDown={handleKeyDown}
+  onClick={(e) => e.stopPropagation()}
+  onMouseDown={(e) => e.stopPropagation()}
+  disabled={updating}
+/>
+
                     )
                   ) : (
                     field === 'status'
-                      ? lead[field].replace('_', ' ')
+                      ? String(lead[field] ?? '').replace('_', ' ')
                       : field === 'created_at'
                         ? formatDDMMYYYY(lead[field])
-                        : lead[field]
+                        : String(lead[field] ?? '')
                   )}
                 </td>
               ))}

@@ -11,10 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // recoger y sanitizar
 $first_name = trim($_POST['first_name'] ?? '');
-$last_name  = trim($_POST['last_name']  ?? '');
 $email      = trim($_POST['email']      ?? '');
 
-if (!$first_name || !$last_name || !$email) {
+if (!$first_name || !$email) {
   http_response_code(400);
   echo json_encode(['success' => false, 'message' => 'Faltan datos obligatorios']);
   exit;
@@ -22,7 +21,6 @@ if (!$first_name || !$last_name || !$email) {
 
 $company  = trim($_POST['company']  ?? null);
 $position = trim($_POST['position'] ?? null);
-$country  = trim($_POST['country']  ?? null);
 $phone    = trim($_POST['phone']    ?? null);
 $status   = in_array($_POST['status'] ?? '', ['interesado','aplazados','en_curso','completado'])
             ? $_POST['status'] : 'interesado';
@@ -30,14 +28,16 @@ $status   = in_array($_POST['status'] ?? '', ['interesado','aplazados','en_curso
 try {
   $stmt = $pdo->prepare("
     INSERT INTO leads
-      (first_name,last_name,company,position,country,email,phone,status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      (first_name,email,company,position,phone,status)
+    VALUES (?, ?, ?, ?, ?, ?)
   ");
   $stmt->execute([
-    $first_name, $last_name,
-    $company, $position,
-    $country, $email,
-    $phone, $status
+    $first_name,
+    $email,
+    $company,
+    $position,
+    $phone,
+    $status
   ]);
   echo json_encode([
     'success' => true,
