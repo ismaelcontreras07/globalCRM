@@ -21,7 +21,7 @@ if (!$id) {
 // 3) Definimos los campos permitidos, incluyendo created_at
 $allowed = [
   'first_name','last_name','company','position',
-  'country','email','phone','status','created_at','source'
+  'country','email','phone','status','created_at','source', 'owner', 'notes'
 ];
 
 $updates = [];
@@ -51,6 +51,12 @@ foreach ($_POST as $key => $val) {
       $updates[] = "`$key` = ?";
       $params[]  = $status;
     } elseif ($key === 'source') {
+      $updates[] = "`$key` = ?";
+      $params[]  = trim($val);
+      } elseif ($key === 'owner') {
+      $updates[] = "`$key` = ?";
+      $params[]  = trim($val);
+      } elseif ($key === 'notes') {
       $updates[] = "`$key` = ?";
       $params[]  = trim($val);
     } else {
